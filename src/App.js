@@ -1,26 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import styles from './app.module.css';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-import Home from './components/home';
-import Profile from './components/profile';
 
-function App() {
+import Login from './components/login/login';
+
+function App({ authService }) {
   return (
-    <BrowserRouter>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/profile">profile</Link>
-      </nav>
-      <Switch>
-        <Route path={['/', '/home']} exact>
-          <Home />
-        </Route>
-
-        <Route path="/profile">
-          <Profile />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <div className={styles.app}>
+      <Login authService={authService} />
+    </div>
   );
 }
 
